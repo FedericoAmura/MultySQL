@@ -1,2 +1,5 @@
 lib/
 .idea/
+.travis.yml
+.gitignore
+test/

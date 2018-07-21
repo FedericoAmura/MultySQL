@@ -1,0 +1,25 @@
+language : node_js
+node_js :
+ - '4'
+ - '6'
+ - '8'
+ - '10'
+ - stable
+sudo: false
+services:
+ - mysql
+before_install:
+# use Travis CI default MySQL acount
+  - mysql -e 'CREATE DATABASE first_db;'
+  - mysql -e 'CREATE DATABASE second_db;'
+  - export DB_HOST=localhost
+  - export DB_USER=travis
+  - export DB_PWD=''
+  - export DB_FIRST_DATABASE=first_db
+  - export DB_SECOND_DATABASE=second_db
+# package-lock.json was introduced in npm@5
+  - if [[ `node -v` != v9* ]]; then npm install -g npm@5; fi
+install:
+ - npm install
+script:
+ - npm test
