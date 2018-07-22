@@ -22,6 +22,4 @@ before_install:
 install:
  - npm install
 script:
- - npm install codecov -g
-after_success:
- - codecov
+ - npm test
