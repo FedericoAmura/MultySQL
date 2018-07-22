@@ -26,13 +26,17 @@ describe('#DbHandler', function () {
     expect(dbArray).to.be.an('array');
   });
 
-  it('should connect to a database', async function () {
+  it('should connect to a database but only the first time', async function () {
     const dbName = process.env.DB_FIRST_DATABASE || 'first';
     const firstPool = dbs.get(dbName);
 
     const result = await firstPool.query("SELECT DATABASE();");
     expect(result[0]['DATABASE()']).to.be.a('string');
     expect(result[0]['DATABASE()']).to.equal(dbName);
+
+    const firstPoolClone = dbs.get(dbName);
+    const resultClone = await firstPoolClone.query("SELECT DATABASE();");
+    expect(resultClone[0]['DATABASE()']).to.equal(dbName);
   });
 
   it('should now have one db', function () {

@@ -1,5 +1,8 @@
 MultySQL
 ========
+[![Build Status](https://travis-ci.org/FedericoAmura/multysql.svg?branch=master)](https://travis-ci.org/FedericoAmura/multysql)
+[![npm version](https://badge.fury.io/js/multysql.svg)](https://github.com/FedericoAmura/multysql)
+[![MIT license](https://img.shields.io/badge/License-MIT-blue.svg)](https://lbesson.mit-license.org/)
 
 A lazy loader for managing connection pools to multiple MySQL databases
 
